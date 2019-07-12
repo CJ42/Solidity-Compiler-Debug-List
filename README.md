@@ -13,6 +13,15 @@ All the errors and warnings listed below are referenced to the original source f
 
 
 
+## _TypeChecker.cpp_
+
+_NB: this is a really long file, around 2500 lines of code._
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+| **typeError**|```The function declaration is here [...]. Libraries can't call their own functions externally```|||
+
+
 **Warnings**
 
 |   | **Warning** | **Source code file + line** | **Other references** | **Code example** |
