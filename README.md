@@ -61,7 +61,7 @@ function birthday(uint8 _age) public pure returns (uint8) {
 | --- | --- | --- | --- |
 |**warning**|<pre>"this" used in constructor. Note that external functions of a contract. cannot be called while it is being constructed."</pre>||[line 234-240](https://github.com/ethereum/solidity/blob/1cc8475309dd1ae36436b0a5cb2285de0e679a35/libsolidity/analysis/StaticAnalyzer.cpp#L234-L240)|
 
-**Solution : **
+**Solution :**
 
 ```solidity
 constructor(uint _ether) public {
@@ -79,7 +79,7 @@ function sendEther(uint _ether) external {
 | --- | --- | --- | --- |
 |**typeError**|<pre>Division by zero</pre><pre>Modulo zero</pre>||[line 284-288](https://github.com/ethereum/solidity/blob/1cc8475309dd1ae36436b0a5cb2285de0e679a35/libsolidity/analysis/StaticAnalyzer.cpp#L284-L288)|
 
-**Solution : **
+**Solution :**
 
 ```solidity
 function divide(uint _number) public pure {
@@ -92,7 +92,7 @@ function divide(uint _number) public pure {
 | --- | --- | --- | --- |
 |**typeError**|<pre>The function declaration is here: [function-name]. Libraries cannot call their own functions externally</pre>|since Solidity 0.5.9|[line 312-324](https://github.com/ethereum/solidity/blob/f05805c955f73fd2ea1d14dc9edf14b472631b17/libsolidity/analysis/StaticAnalyzer.cpp#L312-L324)|
 
-**Solution : **
+**Solution :**
 
 ```solidity
 pragma solidity 0.5.9;
@@ -110,20 +110,42 @@ library L {
 }
 ```
 
-**References : **
+**References :**
 
 * https://github.com/ethereum/solidity/issues/6451
 * https://github.com/ethereum/solidity/pull/6604/files
 
 
-## _TypeChecker.cpp_
-
-_NB: this is a really long file, around 2500 lines of code._
+## _SyntaxChecker.cpp_
 
 |**Error Type**|**Message**|**Compiler Version**|**Source**|
 | --- | --- | --- | --- |
-| **typeError**|<pre>The function declaration is here [...]. Libraries can't call their own functions externally</pre>|||
+| **SyntaxError**|<pre>Source file does not specify required compiler version! Consider adding “pragma solidity”</pre>||[Line 57 - 72](https://github.com/ethereum/solidity/blob/2ee272acf32fbad4efd1da7919c59792597ce9e6/libsolidity/analysis/SyntaxChecker.cpp#L57-L72)|
 
+**Error :**
+
+```solidity
+<span style="color:red"> error occurs here</span>
+contract NewHello{
+    // contract code here
+}
+```
+
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+| **SyntaxError**|<pre>Experimental feature name is missing</pre>||[Line 86 - 90](https://github.com/ethereum/solidity/blob/2ee272acf32fbad4efd1da7919c59792597ce9e6/libsolidity/analysis/SyntaxChecker.cpp#L86-L90)|
+
+**Error :**
+
+```solidity
+pragma experimental;
+
+contract MyContract {
+    // Write your code here
+}
+
+```
 
 **Warnings**
 
