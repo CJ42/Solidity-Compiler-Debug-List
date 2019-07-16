@@ -11,6 +11,35 @@ All the errors and warnings listed below are referenced to the original source f
 
 **All of these Error and Warning messages are visible in the C++ source code of the Solidity compiler, available at** [https://github.com/ethereum/solidity/tree/develop/libsolidity/analysis](https://github.com/ethereum/solidity/tree/develop/libsolidity/analysis)
 
+- StaticAnalyzer : **8** / 12
+- SyntaxChecker : /29
+- TypeChecker : /192
+- ConstantEvaluator : /2
+- ContractLevelChecker : / 34
+- ContractFlowAnalyzer : / 2
+- DeclarationContainer : / 3
+- DocStringAnalyser : / 3
+- NameAndTypeResolver : / 20
+- PostTypeChecker : / 2
+- ReferencesResolver : / 20
+- ViewPureChecker : / 5
+
+
+## _StaticAnalyser.cpp_ 
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+|**warning**|```Unused function parameter. Remove or comment out the variable name to silence this warning```||[line 124](https://github.com/ethereum/solidity/blob/efd8d8fe5eced023476af71491e9eae3dbde4d87/libsolidity/analysis/StaticAnalyzer.cpp#L124)|
+
+```solidity
+function sayHello(string memory _name, uint8 _age) public pure returns (string memory) {
+        string memory myName = _name;
+        return myName;
+    }
+
+
+```
+
 
 
 ## _TypeChecker.cpp_
