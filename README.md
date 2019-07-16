@@ -29,17 +29,91 @@ All the errors and warnings listed below are referenced to the original source f
 
 |**Error Type**|**Message**|**Compiler Version**|**Source**|
 | --- | --- | --- | --- |
-|**warning**|```Unused function parameter. Remove or comment out the variable name to silence this warning```||[line 124](https://github.com/ethereum/solidity/blob/efd8d8fe5eced023476af71491e9eae3dbde4d87/libsolidity/analysis/StaticAnalyzer.cpp#L124)|
+|**warning**|<pre>Unused function parameter. Remove or comment out the variable name to silence this warning</pre>||[line 124](https://github.com/ethereum/solidity/blob/efd8d8fe5eced023476af71491e9eae3dbde4d87/libsolidity/analysis/StaticAnalyzer.cpp#L124)|
+
+**Solution : **
 
 ```solidity
 function sayHello(string memory _name, uint8 _age) public pure returns (string memory) {
-        string memory myName = _name;
-        return myName;
-    }
+    string memory myName = _name;
+    return myName;
+}
 
 
 ```
 
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+|**warning**|<pre>Unused local variable</pre>||[line 127](https://github.com/ethereum/solidity/blob/efd8d8fe5eced023476af71491e9eae3dbde4d87/libsolidity/analysis/StaticAnalyzer.cpp#L127)|
+
+**Solution : **
+
+```solidity
+function birthday(uint8 _age) public pure returns (uint8) {
+    uint8 new_age = _age++;
+    return _age++;
+}
+
+```
+
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+|**warning**|<pre>"this" used in constructor. Note that external functions of a contract. cannot be called while it is being constructed."</pre>||[line 234-240](https://github.com/ethereum/solidity/blob/1cc8475309dd1ae36436b0a5cb2285de0e679a35/libsolidity/analysis/StaticAnalyzer.cpp#L234-L240)|
+
+**Solution : **
+
+```solidity
+constructor(uint _ether) public {
+    this.sendEther(_ether);
+}
+    
+function sendEther(uint _ether) external {
+    address(this).balance + _ether;
+    msg.sender.balance - _ether;
+}
+```
+
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+|**typeError**|<pre>Division by zero</pre><pre>Modulo zero</pre>||[line 284-288](https://github.com/ethereum/solidity/blob/1cc8475309dd1ae36436b0a5cb2285de0e679a35/libsolidity/analysis/StaticAnalyzer.cpp#L284-L288)|
+
+**Solution : **
+
+```solidity
+function divide(uint _number) public pure {
+    uint result = _number / 0;
+}
+```
+
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+|**typeError**|<pre>The function declaration is here: [function-name]. Libraries cannot call their own functions externally</pre>|since Solidity 0.5.9|[line 312-324](https://github.com/ethereum/solidity/blob/f05805c955f73fd2ea1d14dc9edf14b472631b17/libsolidity/analysis/StaticAnalyzer.cpp#L312-L324)|
+
+**Solution : **
+
+```solidity
+pragma solidity 0.5.9;
+
+library L {
+    using L for *;
+    
+    function f() public pure returns (uint r) { 
+        return r.g();
+    }
+    
+    function g(uint) public pure returns (uint) { 
+        return 2; 
+    }
+}
+```
+
+**References : **
+
+* https://github.com/ethereum/solidity/issues/6451
+* https://github.com/ethereum/solidity/pull/6604/files
 
 
 ## _TypeChecker.cpp_
@@ -48,7 +122,7 @@ _NB: this is a really long file, around 2500 lines of code._
 
 |**Error Type**|**Message**|**Compiler Version**|**Source**|
 | --- | --- | --- | --- |
-| **typeError**|```The function declaration is here [...]. Libraries can't call their own functions externally```|||
+| **typeError**|<pre>The function declaration is here [...]. Libraries can't call their own functions externally</pre>|||
 
 
 **Warnings**
