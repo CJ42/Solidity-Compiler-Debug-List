@@ -41,12 +41,14 @@ function sayHello(string memory _name, uint8 _age) public pure returns (string m
 
 
 ```
+-----
+
 
 |**Error Type**|**Message**|**Compiler Version**|**Source**|
 | --- | --- | --- | --- |
 |**warning**|<pre>Unused local variable</pre>||[line 127](https://github.com/ethereum/solidity/blob/efd8d8fe5eced023476af71491e9eae3dbde4d87/libsolidity/analysis/StaticAnalyzer.cpp#L127)|
 
-**Solution : **
+**Solution :**
 
 ```solidity
 function birthday(uint8 _age) public pure returns (uint8) {
@@ -55,6 +57,7 @@ function birthday(uint8 _age) public pure returns (uint8) {
 }
 
 ```
+-----
 
 
 |**Error Type**|**Message**|**Compiler Version**|**Source**|
@@ -73,6 +76,7 @@ function sendEther(uint _ether) external {
     msg.sender.balance - _ether;
 }
 ```
+-----
 
 
 |**Error Type**|**Message**|**Compiler Version**|**Source**|
@@ -86,6 +90,7 @@ function divide(uint _number) public pure {
     uint result = _number / 0;
 }
 ```
+-----
 
 
 |**Error Type**|**Message**|**Compiler Version**|**Source**|
@@ -114,13 +119,14 @@ library L {
 
 * https://github.com/ethereum/solidity/issues/6451
 * https://github.com/ethereum/solidity/pull/6604/files
+-----
 
 
 ## _SyntaxChecker.cpp_
 
 |**Error Type**|**Message**|**Compiler Version**|**Source**|
 | --- | --- | --- | --- |
-| **SyntaxError**|<pre>Source file does not specify required compiler version! Consider adding “pragma solidity”</pre>||[Line 57 - 72](https://github.com/ethereum/solidity/blob/2ee272acf32fbad4efd1da7919c59792597ce9e6/libsolidity/analysis/SyntaxChecker.cpp#L57-L72)|
+| **SyntaxError**|<pre>Source file does not specify required compiler version! Consider adding “pragma solidity”</pre>||_SyntaxChecker.cpp_, [Line 57 - 72](https://github.com/ethereum/solidity/blob/2ee272acf32fbad4efd1da7919c59792597ce9e6/libsolidity/analysis/SyntaxChecker.cpp#L57-L72)|
 
 **Error :**
 
@@ -130,11 +136,12 @@ contract NewHello{
     // contract code here
 }
 ```
+-----
 
 
 |**Error Type**|**Message**|**Compiler Version**|**Source**|
 | --- | --- | --- | --- |
-| **SyntaxError**|<pre>Experimental feature name is missing</pre>||[Line 86 - 90](https://github.com/ethereum/solidity/blob/2ee272acf32fbad4efd1da7919c59792597ce9e6/libsolidity/analysis/SyntaxChecker.cpp#L86-L90)|
+| **SyntaxError**|<pre>Experimental feature name is missing</pre>||_SyntaxChecker.cpp_, [Line 86 - 90](https://github.com/ethereum/solidity/blob/2ee272acf32fbad4efd1da7919c59792597ce9e6/libsolidity/analysis/SyntaxChecker.cpp#L86-L90)|
 
 **Error (example):**
 
@@ -151,7 +158,7 @@ contract MyContract {
 
 |**Error Type**|**Message**|**Compiler Version**|**Source**|
 | --- | --- | --- | --- |
-| **SyntaxError**|<pre>Stray arguments</pre>||[Line 91 - 95](https://github.com/ethereum/solidity/blob/2ee272acf32fbad4efd1da7919c59792597ce9e6/libsolidity/analysis/SyntaxChecker.cpp#L91-L95)|
+| **SyntaxError**|<pre>Stray arguments</pre>||_SyntaxChecker.cpp_, [Line 91 - 95](https://github.com/ethereum/solidity/blob/2ee272acf32fbad4efd1da7919c59792597ce9e6/libsolidity/analysis/SyntaxChecker.cpp#L91-L95)|
 
 **Error (example) :**
 
@@ -167,7 +174,7 @@ contract MyContract {
 
 |**Error Type**|**Message**|**Compiler Version**|**Source**|
 | --- | --- | --- | --- |
-| **SyntaxError**|<pre>Duplicate experimental feature name</pre>||[Line 103 - 104](https://github.com/ethereum/solidity/blob/2ee272acf32fbad4efd1da7919c59792597ce9e6/libsolidity/analysis/SyntaxChecker.cpp#L103-L104)|
+| **SyntaxError**|<pre>Duplicate experimental feature name</pre>||_SyntaxChecker.cpp_, [Line 103 - 104](https://github.com/ethereum/solidity/blob/2ee272acf32fbad4efd1da7919c59792597ce9e6/libsolidity/analysis/SyntaxChecker.cpp#L103-L104)|
 
 **Error (example) :**
 
@@ -185,7 +192,7 @@ contract MyContract {
 
 |**Error Type**|**Message**|**Compiler Version**|**Source**|
 | --- | --- | --- | --- |
-| **SyntaxError**|<pre>Modifier body does not contain '_'</pre>||[Line 143 - 144](https://github.com/ethereum/solidity/blob/2ee272acf32fbad4efd1da7919c59792597ce9e6/libsolidity/analysis/SyntaxChecker.cpp#L143-L144)|
+| **SyntaxError**|<pre>Modifier body does not contain '_'</pre>||_SyntaxChecker.cpp_, [Line 143 - 144](https://github.com/ethereum/solidity/blob/2ee272acf32fbad4efd1da7919c59792597ce9e6/libsolidity/analysis/SyntaxChecker.cpp#L143-L144)|
 
 **Error (example) :**
 
@@ -204,7 +211,7 @@ contract MyContract {
 
 |**Error Type**|**Message**|**Compiler Version**|**Source**|
 | --- | --- | --- | --- |
-| **SyntaxError**|<pre>Variable declarations can only be used inside blocks.</pre>||[Line 151 - 152](https://github.com/ethereum/solidity/blob/1cc8475309dd1ae36436b0a5cb2285de0e679a35/libsolidity/analysis/SyntaxChecker.cpp#L151-L152)|
+| **SyntaxError**|<pre>Variable declarations can only be used inside blocks.</pre>||_SyntaxChecker.cpp_, [Line 151 - 152](https://github.com/ethereum/solidity/blob/1cc8475309dd1ae36436b0a5cb2285de0e679a35/libsolidity/analysis/SyntaxChecker.cpp#L151-L152)|
 
 **Error (example) :**
 
@@ -229,7 +236,7 @@ contract MyContract {
 
 |**Error Type**|**Message**|**Compiler Version**|**Source**|
 | --- | --- | --- | --- |
-| **SyntaxError**|<pre>"continue" has to be in a "for" or "while" loop.</pre>||[Line 189 - 191](https://github.com/ethereum/solidity/blob/1cc8475309dd1ae36436b0a5cb2285de0e679a35/libsolidity/analysis/SyntaxChecker.cpp#L189-L191)|
+| **SyntaxError**|<pre>"continue" has to be in a "for" or "while" loop.</pre>||_SyntaxChecker.cpp_, [Line 189 - 191](https://github.com/ethereum/solidity/blob/1cc8475309dd1ae36436b0a5cb2285de0e679a35/libsolidity/analysis/SyntaxChecker.cpp#L189-L191)|
 
 **Error (example) :**
 
@@ -251,6 +258,106 @@ contract MyContract {
 }
 ```
 -----
+
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+| **SyntaxError**|<pre>"break" has to be in a "for" or "while" loop.</pre>||_SyntaxChecker.cpp_, [Line 197 - 199](https://github.com/ethereum/solidity/blob/1cc8475309dd1ae36436b0a5cb2285de0e679a35/libsolidity/analysis/SyntaxChecker.cpp#L197-L199)|
+
+**Error (example) :**
+
+```solidity
+pragma solidity ^0.5.9;
+
+contract MyContract {
+    
+    uint a = 3;
+    uint b = 2;
+    
+    function test(uint x) public {
+        if ( x < a && x > b) {
+            bool result = true;
+            break;
+        }
+    }
+    
+}
+```
+-----
+
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+| **SyntaxError**|<pre>Invalid use of underscores in number literal. No trailing underscores allowed.</pre>||_SyntaxChecker.cpp_, [Line ...](#)|
+
+**Error (example) :**
+
+```solidity
+uint constant bitcoin_supply = 21_000_000_;
+```
+-----
+
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+| **SyntaxError**|<pre>Invalid use of underscores in number literal. Only one consecutive underscores between digits allowed.</pre>||_SyntaxChecker.cpp_, [Line ...](#)|
+
+**Error (example) :**
+
+```solidity
+uint constant bitcoin_supply = 21_000__000;
+```
+-----
+
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+| **SyntaxError**|<pre>Invalid use of underscores in number literal. No underscores in front of the fraction part allowed.</pre>||_SyntaxChecker.cpp_, [Line 236 - 240](https://github.com/ethereum/solidity/blob/1cc8475309dd1ae36436b0a5cb2285de0e679a35/libsolidity/analysis/SyntaxChecker.cpp#L236-L240)|
+
+**Error (example) :**
+
+```solidity
+fixed constant test1 = 10_000_.5;
+fixed constant test2 = 10_000_.5;
+```
+-----
+
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+| **SyntaxError**|<pre>Functions are not allowed to have the same name as the contract. If you intend this to be a constructor, use "constructor(...) { ... }" to define it.</pre>||_SyntaxChecker.cpp_, [Line ...](#)|
+
+**Error (example) :**
+
+```solidity
+pragma solidity ^0.5.9;
+
+contract MyContract {
+    
+    function MyContract() public {
+        // do something
+    }
+    
+}
+```
+-----
+
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+| **SyntaxError**|<pre>No visibility specified. Did you intend to add "[suggested-visibility]"?</pre>||_SyntaxChecker.cpp_, [Line ...](#)|
+
+**Error (example) :**
+
+```solidity
+function run() {
+    // do something
+}
+```
+-----
+
+
+# Everything below need to be cleaned up
 
 **Warnings**
 
