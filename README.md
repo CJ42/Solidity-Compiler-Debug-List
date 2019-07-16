@@ -31,7 +31,7 @@ All the errors and warnings listed below are referenced to the original source f
 | --- | --- | --- | --- |
 |**warning**|<pre>Unused function parameter. Remove or comment out the variable name to silence this warning</pre>||[line 124](https://github.com/ethereum/solidity/blob/efd8d8fe5eced023476af71491e9eae3dbde4d87/libsolidity/analysis/StaticAnalyzer.cpp#L124)|
 
-**Solution : **
+** Solution : **
 
 ```solidity
 function sayHello(string memory _name, uint8 _age) public pure returns (string memory) {
