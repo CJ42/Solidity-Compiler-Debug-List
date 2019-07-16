@@ -125,7 +125,7 @@ library L {
 **Error :**
 
 ```solidity
-<span style="color:red"> error occurs here</span>
+> error occurs here
 contract NewHello{
     // contract code here
 }
@@ -136,7 +136,7 @@ contract NewHello{
 | --- | --- | --- | --- |
 | **SyntaxError**|<pre>Experimental feature name is missing</pre>||[Line 86 - 90](https://github.com/ethereum/solidity/blob/2ee272acf32fbad4efd1da7919c59792597ce9e6/libsolidity/analysis/SyntaxChecker.cpp#L86-L90)|
 
-**Error :**
+**Error (example):**
 
 ```solidity
 pragma experimental;
@@ -146,6 +146,111 @@ contract MyContract {
 }
 
 ```
+-----
+
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+| **SyntaxError**|<pre>Stray arguments</pre>||[Line 91 - 95](https://github.com/ethereum/solidity/blob/2ee272acf32fbad4efd1da7919c59792597ce9e6/libsolidity/analysis/SyntaxChecker.cpp#L91-L95)|
+
+**Error (example) :**
+
+```solidity
+pragma experimental ABIEncoderV2 nextGen;
+
+contract MyContract {
+    // Write your code here
+}
+```
+-----
+
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+| **SyntaxError**|<pre>Duplicate experimental feature name</pre>||[Line 103 - 104](https://github.com/ethereum/solidity/blob/2ee272acf32fbad4efd1da7919c59792597ce9e6/libsolidity/analysis/SyntaxChecker.cpp#L103-L104)|
+
+**Error (example) :**
+
+```solidity
+pragma experimental SMTChecker;
+pragma experimental SMTChecker;
+
+contract MyContract {
+    // Write your code here
+}
+
+```
+-----
+
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+| **SyntaxError**|<pre>Modifier body does not contain '_'</pre>||[Line 143 - 144](https://github.com/ethereum/solidity/blob/2ee272acf32fbad4efd1da7919c59792597ce9e6/libsolidity/analysis/SyntaxChecker.cpp#L143-L144)|
+
+**Error (example) :**
+
+```solidity
+pragma solidity ^0.5.9;
+
+contract MyContract {
+    
+    modifier Fee {
+        require (msg.value != 0);
+    }
+}
+```
+-----
+
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+| **SyntaxError**|<pre>Variable declarations can only be used inside blocks.</pre>||[Line 151 - 152](https://github.com/ethereum/solidity/blob/1cc8475309dd1ae36436b0a5cb2285de0e679a35/libsolidity/analysis/SyntaxChecker.cpp#L151-L152)|
+
+**Error (example) :**
+
+```solidity
+pragma solidity ^0.5.9;
+
+contract MyContract {
+    
+    uint a = 3;
+    uint b = 2;
+    
+    function test() public {
+        
+        for (uint x = 1; x <= 10; x++) uint c = a + b + x;
+        
+    }
+    
+}
+```
+-----
+
+
+|**Error Type**|**Message**|**Compiler Version**|**Source**|
+| --- | --- | --- | --- |
+| **SyntaxError**|<pre>"continue" has to be in a "for" or "while" loop.</pre>||[Line 189 - 191](https://github.com/ethereum/solidity/blob/1cc8475309dd1ae36436b0a5cb2285de0e679a35/libsolidity/analysis/SyntaxChecker.cpp#L189-L191)|
+
+**Error (example) :**
+
+```solidity
+pragma solidity ^0.5.9;
+
+contract MyContract {
+    
+    uint a = 3;
+    uint b = 2;
+    
+    function test(uint x) public {
+        if ( x < a && x > b) {
+            bool result = true;
+            continue;
+        }
+    }
+    
+}
+```
+-----
 
 **Warnings**
 
