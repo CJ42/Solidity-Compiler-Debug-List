@@ -7,6 +7,8 @@ The list is based on the official C++ source code from the Solidity compiler. Th
 
 All the errors and warnings listed below are referenced to the original source file + line number for better analysis. Some explanations and solutions are provided to help debugging.
 
+**NB: ** This might be a good idea to list it link here : https://dotorgstyleguide.wordpress.com/outline/layout/columns/
+
 # The Full List
 
 **All of these Error and Warning messages are visible in the C++ source code of the Solidity compiler, available at** [https://github.com/ethereum/solidity/tree/develop/libsolidity/analysis](https://github.com/ethereum/solidity/tree/develop/libsolidity/analysis)
