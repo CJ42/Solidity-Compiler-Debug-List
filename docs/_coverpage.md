@@ -2,7 +2,7 @@
 
 ![logo](https://2.bp.blogspot.com/-zCJa5fv2GvI/WZr3runDMxI/AAAAAAAAcOA/xaVaP_FtfAoBgUEudfDuYi5j2lKY-CWwwCLcBGAs/s1600/Solidity.png)
 
-# **Solidity Debugger List** <small>beta 0.1</small>
+# **Solidity Debugger List** <small>alpha 0.1</small>
 
 > Curated list of Errors & Warnings from the Solidity Compiler.
 
