@@ -24,10 +24,11 @@ npm install docsify --save
 the `--save` option will save docsify locally in your `UI` folder. 
 You can use the `-g` flag to install docsify globally.
 
-3) Clone the repository : 
+3) Clone the repository, using the `dev` branch : 
 
-git clone https://github.com/CJ42/Solidity-Compiler-Debug-List.git
-
+```
+git clone --branch dev https://github.com/CJ42/Solidity-Compiler-Debug-List.git
+```
 
 4) Enter in the `/docs` folder within the directory : 
 ```
