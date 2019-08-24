@@ -123,6 +123,7 @@ This error occurs when you define a fixed-size array that contains more than 134
 - https://www.ibm.com/support/knowledgecenter/en/SS6SG3_4.2.0/com.ibm.entcobol.doc_4.2/MG/igymapxg001.htm
 - http://ibmmainframes.com/about56564.html
 
+_Edit_ : this number corresponds to the maximum number of bytes allowed to be passed in memory. Over this number, the memory size is exhausted.
 
 **Example**
 
